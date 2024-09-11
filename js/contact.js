@@ -1,11 +1,25 @@
 function submitForm(event) {
+    // Prevent default form submission
+    event.preventDefault();
+
     // Get the form data
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
 
-    // Create the Google Forms link with form data
-    const googleFormsLink = `https://docs.google.com/forms/d/e/1FAIpQLSfkYWRlGvXUr0U-YqVHMAiqYBNpeyL3cp4Mt8-HlPjZodUAqg/viewform?usp=pp_url&entry.1320401285=${name}&entry.2013840095=${email}`;
+    // Create a form data object
+    const formData = new FormData();
+    formData.append('entry.1320401285', name);   // Name field ID
+    formData.append('entry.2013840095', email);  // Email field ID
 
-    // Open new window
-    window.open(googleFormsLink, "_blank");
+    // Send the data to the Google Form using fetch
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSfkYWRlGvXUr0U-YqVHMAiqYBNpeyL3cp4Mt8-HlPjZodUAqg/formResponse', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Important to bypass CORS policy of Google Forms
+    }).then(response => {
+        // Optionally, show a confirmation message
+        document.getElementById("confirmation-message").innerText = "Thank you for signing up!";
+    }).catch(error => {
+        console.error('Error submitting the form', error);
+    });
 }

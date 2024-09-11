@@ -127,27 +127,30 @@
           </div>
 
           <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="post">
-              
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="post" onsubmit="submitForm(event)">
               <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="name" name="name" placeholder="name" required>
                   <label for="name">Name</label>
                   <div class="invalid-feedback">
-                    Please provide your name.
+                      Please provide your name.
                   </div>
               </div>
-
+          
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@psu.edu" required>
-                <label for="email">PSU Email</label>
-                <div class="invalid-feedback">
-                  Please enter a valid email address.
-                </div>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="name@psu.edu" required>
+                  <label for="email">PSU Email</label>
+                  <div class="invalid-feedback">
+                      Please enter a valid email address.
+                  </div>
               </div>
-              
-              <button class="w-100 btn btn-lg btn-primary" type="submit" id="emailSignup">Sign Up</button>
+          
+              <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" id="emailSignup">Sign Up</button>
+          
+              <!-- Placeholder for confirmation message -->
+              <div class="text-center p-0 mb-0 mt-0 p-md-0">
+                  <div id="confirmation-message">&nbsp;</div> <!-- Using non-breaking space initially -->
+              </div>
             </form>
-            <div id="confirmation-message"></div>
           </div>
         </div>
       </div>

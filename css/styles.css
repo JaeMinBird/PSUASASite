@@ -525,3 +525,9 @@ left: 50%;
     height:40%;
     transition:1s;
 }
+
+#confirmation-message {
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
